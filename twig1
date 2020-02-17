@@ -1,0 +1,20 @@
+<?php
+
+require_once './vendor/autoload.php';
+
+$loader = new \Twig\Loader\ArrayLoader([
+    'index' => '{{ who }}, {{ hello }}' 
+]);
+$twig = new \Twig\Environment($loader);
+/*
+$params = [
+	'who' => 'Hola a todos', 
+	'hello' => 'Bienvenido al primer tutorial de twig'
+]; 
+
+echo $twig->render('index', $params);
+*/
+$who = 'Hola programadores';
+$hello = 'Sean bienvenidos al curso de twigs';
+
+echo $twig->render('index', compact('who', 'hello'));
