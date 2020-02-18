@@ -1,0 +1,14 @@
+{% set name = 'Joao' %} 
+{# Asi se hace un comentario usando Twig#}
+{# Para agregar una variable se utiliza una {} y dento set + variable #}
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi página con Twig</title>
+</head>
+<body>
+{# Para imprimir la variable se ocupa doble {} + variable #}
+    <h1>Hola {{ name }}</h1> 
+</body>
+</html>
