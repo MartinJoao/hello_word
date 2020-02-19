@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tabla</title>
+</head>
+<style type="text/css">
+	table, th, td {
+		border: 4px solid skyblue;
+		border-collapse: collapse;
+	}
+	th, td {
+		padding: 10px;
+	}
+</style>
+<body>
+	<center>
+	<h1>Ejercicio con TABLAS</h1>
+	<table style="width: 100%">
+		<thead>
+			<tr>
+				<th colspan="1"><a href="formulario.php">Nuevo</a></th>
+				<th colspan="5">Lista de productos</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>Id</td>
+				<td>Nombre</td>
+				<td>Cantidad</td>
+				<td>Precio</td>
+				<td colspan="2">Opciones</td>
+			</tr>
+			<?php
+			include ("conexion.php");
+			$resultado = $conexion->query('SELECT * FROM productos');
+            foreach ($resultado as $row){
+			?>
+			<tr>
+				<td><?php echo $row ['id']; ?></td>
+				<td><?php echo $row ['nombre']; ?></td>
+				<td><?php echo $row ['cantidad']; ?></td>
+				<td><?php echo $row ['precio']; ?></td>
+				<td><a href="editar.php?id=<?php echo $row['id']; ?>">Editar</a></td>
+				<td><a href="eliminar.php?id=<?php echo $row['id']; ?>">Eliminar</a></td>
+			</tr>
+			<?php
+			     }
+			?>
+		</tbody>
+	</table>
+	</center>
+</body>
+</html>
